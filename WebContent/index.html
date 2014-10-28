@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html ng-app="userManagement">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>User Management</title>
+<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="css/angular.css">
+<style type="text/css">
+body {
+	margin-top: 50px;
+}
+</style>
+</head>
+<body>
+
+	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">User Managment</a>
+			</div>
+
+			<div class="collapse navbar-collapse" ng-controller="RouterController as route">
+
+				<ul class="nav navbar-nav navbar-left">
+					<li ng-class="{active:route.isTab(3)}" ng-show="route.isLoggedIn"><a
+						href="#/dash" ng-click="route.setTab(3)">DashBoard</a></li>
+					<li><a>Add User</a></li>
+				</ul>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li ng-class="{active:route.isTab(1)}" ng-hide="route.isLoggedIn"><a
+						href="#/login" ng-click="route.setTab(1)">Login</a></li>
+					<li ng-class="{active:route.isTab(2)}" ng-hide="route.isLoggedIn"><a
+						href="#/signup" ng-click="route.setTab(2)">Sign Up</a></li>
+
+					<li ng-show="route.isLoggedIn"><a href=""
+						ng-click="route.logout()">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div ng-view=""></div>
+
+	<script type="text/javascript" src="lib/angular/js/angular.min.js"></script>
+	<script type="text/javascript"
+		src="lib/angular/js/angular-route.min.js"></script>
+	<script type="text/javascript" src="lib/jquery/js/jquery-1.11.0.min.js"></script>
+
+	<script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript" src="app/main.js"></script>
+	<script type="text/javascript" src="app/controllers/loginController.js"></script>
+	<script type="text/javascript"
+		src="app/controllers/signUpController.js"></script>
+	<script type="text/javascript" src="app/services/httpService.js"></script>
+	<!-- 
+	<script type="text/javascript" src="app/services/storageService.js"></script> -->
+	<script type="text/javascript"
+		src="app/controllers/dashBoardController.js"></script>
+	<script type="text/javascript"
+		src="app/controllers/routerController.js"></script>
+	<script type="text/javascript"
+		src="app/controllers/displayMessageController.js"></script>
+	
+	<script type="text/javascript" src="app/services/storageService.js"></script>
+	<!-- 
+	<script type="text/javascript" src="app/services/appFactoryService.js"></script> -->
+</body>
+</html>
